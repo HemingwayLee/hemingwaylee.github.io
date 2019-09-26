@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Lee Yun-Wei</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,600,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-animateNumber/0.0.14/jquery.animateNumber.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <style>
+    body{
+      font-family: 'Dosis', sans-serif;
+      position: relative;
+    }
+    
+    /*Add font-size and/or height to make scroll move lots.*/
+    div.col-sm-9 div{
+      font-size: 20px;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {
+      height: 1500px;
+    }
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      padding-top: 20px;
+      text-align:center;
+      font-weight:bold;
+    }
+    
+    .main{
+      margin-left:250px; /*must be the same width as sidenav is*/
+      padding: 0px 10px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+    
+    #my-photo img {
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    
+    .carousel-caption {
+      left: 5%;
+      top: 50%;
+      text-align: left;
+      max-width: 430px;
+      right: auto;
+    }
+    
+    .skill {
+      margin: 5px;
+    }
+    
+    .fab:hover, .fas:hover {
+      color: #337ab7;
+    }
+
+    .my-mask {
+      text-align:center;
+      color:white;
+      margin-bottom: 50px;
+      margin-top: 50px;
+      background:url('castle.JPG') no-repeat center;
+      background-attachment: fixed;
+    }
+    
+    .me {
+      /*border-radius:50%;
+      border:8px solid white;*/
+      display: block;
+      width: 150px;
+      height: 150px;
+      margin: 0em auto;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      -webkit-border-radius: 99em;
+      -moz-border-radius: 99em;
+      border-radius: 99em;
+      border: 4px solid #eee;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+      opacity: 1;
+      display: block;
+      transition: .5s ease;
+      backface-visibility: hidden;
+    }
+
+    .my-title {
+      color:#337ab7;
+    }
+
+    .my-content {
+      font-size:20px;
+    }
+
+    .typewrite {
+      font-weight: bold;
+      font-size: 42px;
+      font-family:'Dosis', sans-serif;
+      color: white;
+      text-shadow: 1px 5px 2px #337ab7, 0 0 60px #337ab7, 0 0 45px #337ab7;
+    }
+
+    .nav {
+      font-size:25px;
+    }
+
+    ul.timeline {
+      list-style-type: none;
+      position: relative;
+    }
+
+    ul.timeline:before {
+      content: ' ';
+      background: #f1f1f1;
+      display: inline-block;
+      position: absolute;
+      left: 28px;
+      width: 5px;
+      height: 100%;
+      z-index: 400;
+    }
+
+    ul.timeline > li {
+      margin: 20px 0;
+      padding-left: 20px;
+    }
+
+    ul.timeline > li:before {
+      content: ' ';
+      background: white;
+      display: inline-block;
+      position: absolute;
+      border-radius: 50%;
+      border: 3px solid #337ab7;
+      left: 20px;
+      width: 20px;
+      height: 20px;
+      z-index: 400;
+    }
+    
+    .timeline-title{
+      font-size:20px;
+      font-weight:bold;
+    }
+    
+    .float-right{
+      color:gray;
+      float:right;
+    }
+    .timeline-content{
+      font-size:18px;
+    }
+  </style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="0">
+
+<div class="container-fluid">
+  <div class="row content">
+    <nav class="col-sm-3 sidenav" id="myScrollspy">
+      <div id="my-photo" class="my_photo">
+        <img src="me.png" class="img-circle me">
+      </div>
+      <h3><b>Lee, Yun-Wei</b></h3>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Home</a></li>
+        <li><a href="#section2">About</a></li>
+        <li><a href="#section3">Skills</a></li>
+        <li><a href="#section4">Experience</a></li>
+        <li><a href="#section5">Work</a></li>
+      </ul>
+      <br>
+      <a href="https://www.facebook.com/pracinverse"><i class="fab fa-facebook-square fa-2x"></i></a>
+      <a href="https://github.com/HemingwayLee/"><i class="fab fa-github fa-2x"></i></a>
+      <a href="http://biglegsrabbit.blogspot.com/"><i class="fab fa-blogger fa-2x"></i></a>
+      <a href="https://www.linkedin.com/in/yun-wei-hemingway-lee-844319ba/"><i class="fab fa-linkedin fa-2x"></i></a>
+    </nav>
+
+    <div class="col-sm-9 main">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" id="section1">
+          <div class="item active">
+            <img src="slider1.png" style="width:100%;">
+            <div class="carousel-caption">
+              <div style="font-size:42px"><b>HELLO!</b></div>
+              <span style="font-size:42px">I am </span>
+              <span class="typewrite" data-period="2000" data-type='[ "Lee, Yun-Wei", "a Developer", "an AI Engineer"]'></span>
+              <span class="wrap"></span>
+            </div>
+          </div>
+          <div class="item">
+            <img src="slider2.png" style="width:100%;">
+            <div class="carousel-caption">
+              <p style="font-size:30px">I <b>Believe</b> "The world belongs to those still willing to get our hands dirty."</p>
+            </div>
+          </div>
+          <div class="item">
+            <img src="slider3.png" style="width:100%;">
+            <div class="carousel-caption">
+              <h3 style="font-size:30px">Committed and energetic <b>Dreamer</b></h3>
+              <p style="font-size:30px">I aim to make a difference through my creative solution.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br><br><br>
+      <div>
+      <h4 id="section2">ABOUT ME</h4>
+      <h1 class="my-title"><b>WHO AM I?</b></h1>
+      <p style="font-size:20px"><b>Hello! I am a full stack developer.</b></p>
+      <P class="my-content">I have 9+ years of experience in full life cycle of software development including requirement definition, proof of concept, design, implementation, testing, deployment and maintenance.<br><br>
+      In my current job, I create prototypes and build solutions with cutting edge technologies such as Blockchain, Machine Learning, and IoT.<br><br> 
+      I have experience in leading and working with offshore teams to develop new products and maintain old products. I also have experience in building infrastructure and processes for a startup company.<br><br></P>
+      </div>
+
+      <br><br><br><br>
+      
+      <div>
+      <h4 id="section3">My SPECIALTY</h4>
+      <h1 class="my-title"><b>MY SKILLS</b></h1><br>    
+      <P class="my-content"><b>PROGRAMMING LANGUAGE & TOOLS & METHODOLOGIES</b></P><br>   
+      <table>
+        <tr>
+          <td><i class="fas fa-file-code fa-2x skill" data-toggle="tooltip" title="Programming Languages"></i></td>
+          <td>Python, C\C++, JavaScript, C#, Scala, Go, Java, TypeScript, PHP</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-database fa-2x skill" data-toggle="tooltip" title="Databases"></i></td>
+          <td>PostgreSQL, MSSQL Server, MongoDB, Redis, SQLite, MySQL, Elasticsearch</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-users-cog fa-2x skill" data-toggle="tooltip" title="Methodologies"></i></td>
+          <td>Extreme Programming, Unit Test, Scrum, Kanban, Lean, Design Patterns, DevOps</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-wrench fa-2x skill" data-toggle="tooltip" title="Testing Tools"></i></td>
+          <td>Selenium, AutoIt</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-cloud fa-2x skill" data-toggle="tooltip" title="Clouds"></i></td>
+          <td>AWS, Azure, Google Cloud</td>
+        </tr>
+        <tr>
+          <td><i class="fab fa-docker fa-2x skill" data-toggle="tooltip" title="Virtualization Tools"></i></td>
+          <td>Docker, Docker Compose, VMWare, VirtualBox</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-cog fa-2x skill" data-toggle="tooltip" title="Build Tools"></i></td>
+          <td>sbt, maven, GNU make</td>
+        </tr>
+      </table>
+
+      <br><br>
+      <p class="my-content">
+        <i class="fa fa-check" aria-hidden="true"></i>  Familiar with Supervised learning & Unsupervised learning & Reinforcement learning<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Familiar with NLP (Tokenization, word2vec, BERT, NER, sentiment analysis, chatbots, question answering, and language modeling)<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Familiar with build automation, test automation, and deployment automation<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Familiar with CI/CD (Jenkins, GitLab CI, and Azure DevOps)<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Familiar with Cloud Services (EC2, ECS, RDS, S3, Lambda/Azure Function, Azure Machine Learning Service/CoLab, AutoML, CosmosDB, and KeyVault)<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Familiar with MVC (Play Framework, Django) framework and ORM framework (Slick)<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Familiar with Inter-process Communication (IPC) and Multithreaded Programming<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Familiar with Hotfix Release Process<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Experience with public and private BlockChain technologies (BTC, ETH, XRP, Smart Contract, Wallet, Trading Bots, Market Making, Hyperledger Fabric, MultiChain)<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Experience with frontend development (HTML/CSS/JavaScript/TypeScript/jQuery)<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Experience with node.js, ReactJS and Electron<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Experience with Web Application & Desktop Application (WPF and MFC)<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Experience with Linux Shell Script and Windows Batch Script<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Experience with I18N & L10N Process<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Experience with SOAP and RESTful web service (Django Rest Framework)<br>
+      </p>
+      <div class="my-mask">
+        <br>
+        <br>
+        <table align="center" width="100%">
+          <thead>
+            <tr>
+              <td><h1 id="days"></h1></td>
+              <td><h1 id="leetcode"></h1></td>
+              <td><h1 id="projects"></h1></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><p><b>DAYS IN JAPAN</b></p></td>
+              <td><p><b>SOLVED LEETCODE QUIZZES</b></p></td>
+              <td><p><b>GITHUB PROJECTS</b></p></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <br>
+      </div>
+      </div>
+      <br><br><br><br><br>
+      <div>      
+        <h4 id="section4">MY EXPERIENCE</h4>
+        <h1 class="my-title"><b>LIFE EXPERIENCE</b></h1>      
+        <P></P>
+
+        <ul class="timeline">
+          <li>
+            <span class="timeline-title">KPMG Ignition Tokyo</span>
+            <span class="float-right">July 2019 - Present</span>
+            <p><ul class="timeline-content">
+              <li>Entry Sheet AI is a web application that evaluates job applicants’ resume with Nature Language Processing (NLP) algorithms.</li>
+              <ul>
+                <li>Checked if the content of an entry sheet is copy-and-paste or not using hybrid algorithm which consists of Cosine Similarity, wordnet, n-grams and Word2Vec.</li>
+                <li>Built in-house skillset matching algorithm using NLTK and scikit-learn.</li>
+                <li>Checked Japanese grammar and spelling with in-house language model using Keras and FastText.</li>
+              </ul>
+              <li>Contract Management is a web application which digests various Japanese contracts in PDF format and detects 20+ different Named Entities using KPMG in-house <a href="https://www.youtube.com/watch?v=scQ3xzWprss">Ignite AI platform</a>.</li>
+              <ul>   
+                <li>Built an in-house data pipeline to store data in Azure Data Lake and CosmosDB.</li>  
+                <li>Used opencv and tesseract to do Optical Character Recognition (OCR).</li>          
+                <li>Used BERT masked model to fix the errors generated by OCR.</li> 
+                <li>Used Azure Machine Learning Services to train and deploy the Named Entity Recognition models.</li> 
+                <li>The hybrid Named Entity Recognition models are built by Keras, extended spaCy, and BERT.</li> 
+              </ul>
+            </ul></p>          
+          </li>
+          <li>
+            <span class="timeline-title">KPMG Consulting</span>
+            <span class="float-right">August 2018 - July 2019</span>
+            <p><ul class="timeline-content">
+              <li>Cashflow Manager is a tool that we can use to visualize bank account information within a company and its subsidiaries.</li>
+              <ul>
+                <li>Built a web application and a report system using Python, PostgreSQL, Django framework, and Tableau.</li>
+              </ul>
+              <li>Survey Platform is a web application that generates different kinds of surveys with using in-house frontend GUI editor. It allows us to collect information from our external and internal clients</li>
+              <ul>
+                <li>Built a web application from scratch using Python, Django Rest framework, and ReactJS.</li>
+                <li>Built a content management system (CMS) with Role-based access control (RBAC) using PostgreSQL database.</li>
+                <li>The web application is deployed automatically to Azure Container Registry from Azure DevOps via CI/CD pipeline.</li>
+              </ul>
+              <li>jFlying is a prototype that we can charge a flying drone and send charging information to a blockchain.</li>
+              <ul>    
+                <li>Used ETH blockchain and write a smart contract using Solidity.</li> 
+                <li>Used IoT devices for charging and sending information to ETH blockchain.</li>  
+                <li>Built a web application for demo using node.js, PostgreSQL, and jQuery.</li>
+              </ul>
+            </ul></p>
+          </li>
+          <li>
+            <span class="timeline-title">Vauldex (FixerInit)</span>
+            <span class="float-right">February 2017 - July 2018</span>
+            <p><ul class="timeline-content">
+              <li><a href="https://mr.exchange/">Mr. Exchange</a> is a secure cryptocurrency exchange with advanced trading tools. It allows users to send and trade multiple cryptocurrency including BTC, LTC, DOG, XRP, ETC, ETH, etc. I built distributed scrum teams, led and worked with engineers in Philippines in following projects (Mr. Exchange, automation, database migration, and in-house trade engine) using Scala, PostgreSQL, MongoDB, and Redis.</li>
+              <ul>
+                <li>Be a scrum master and apply agile practices (kanban, standup meeting, review meeting, unit testing, coding standards, and so on) to the teams.</li>
+                <li>Built Continuous Integration (CI) and Continuous Delivery (CD) using Jenkins and GitLab CI from scratch.</li>
+                <li>Ran unit tests, deployment automations (deploy to AWS), and a static code analysis tool (scalastyle) based on Jenkins and GitLab.</li>
+                <li>Introduced Data Driven Decision Making and evaluate performance based on data.</li>
+              </ul>
+            </ul></p>
+          </li>
+          <li>
+            <span class="timeline-title">Move to Fukuoka, Japan <i class="fas fa-plane"></i></span>
+          </li>
+          <li>
+            <span class="timeline-title">TrendMicro</span>
+            <span class="float-right">April 2013 - September 2016</span>
+            <p><ul class="timeline-content">
+              <li><a href="https://www.youtube.com/watch?v=3A8MaHmHbc0">Control Manager</a> is a user-centric management system designed for the IT department of a company. It reports threat detections and protects data within a single web application that integrated with other TrendMicro products.</li>
+              <ul>
+                <li>Developed large-scale enterprise web applications (3 million lines of code) in multiple programming languages (C\C++, C#, PHP, JavaScript, Python, ...).</li>
+                <li>Integrated with other TrendMicro web applications (over 30 web applications) and Microsoft Active Directory (AD).</li>
+                <li>Experienced in cross-departmental collaboration (worked with user experience (UX) designers, engineers in other product teams and module teams).</li>
+                <li>Experienced in full software development life cycle (design, implementation, testing) using scrum.</li>
+                <li>Improved system performance and refined architecture (Identified the root causes via examining MSSQL execution plans).</li>
+                <li>Handled large amount of data in MSSQL Server (0.2 million logs per day).</li>
+                <li>Developed policy & license key deployment and single sign on (SSO) feature to other TrendMicro web applications.</li>
+                <li>Worked with colleagues and support engineers in other countries (e.g., US, Japan, China, Philippines, and Germany).</li>
+                <li>Fixed bugs within limited time (Identified root causes and provided solutions).</li>
+                <li>Worked with multiple code branches and deliveries.</li>
+                <li>Provided solutions for customers' feature requests.</li>
+                <li>Provided SQL scripts for customers to migrate & summarize data in database.</li>
+                <li>Developed server side debugging & health check tools.</li>
+              </ul>
+            </ul></p>
+          </li>
+          <li>
+            <span class="timeline-title">AVerMedia</span>
+            <span class="float-right">December 2010 - February 2013</span>
+            <p><ul class="timeline-content">
+              <li><a href="https://www.youtube.com/watch?v=rOMFQRHl2pM">AVerTV</a> is a TV player including an intuitively designed user interface. It allows users to switch between channels, adjust volume, or watch live TV with a better TV viewing experience.</li>
+              <ul>
+                <li>Developed windows desktop applications (using C\C++ with MFC and C# with WPF) for our ODM customers.</li>
+                <li>Developed software modules (DLL, COM, and DirectShow Filter) to other teams.</li>
+                <li>Developed windows service for our schedule TV recording feature.</li>
+                <li>Integrated 3rd party modules (e.g., modules from Panasonic, Cyberlink, and Corel)</li>
+              </ul>
+            </ul></p>
+          </li>
+          <li>
+            <span class="timeline-title">CyberLink</span>
+            <span class="float-right">August 2010 - November 2010</span>
+            <p><ul class="timeline-content">
+              <li><a href="https://www.youtube.com/watch?v=vA5YI1zA9Zc">MediaEspresso</a> is a multimedia converter and it transfers video/audio/image files from one format to another. It also cleans up the pixels and lighting of the photos and videos as it transfers those files.</li>
+              <ul>
+                <li>Developed windows desktop applications (using C\C++ with MFC and Python).</li>
+              </ul>
+            </ul></p>
+          </li>
+          <li>
+            <span class="timeline-title">National Cheng Kung University</span>
+            <span class="float-right">September 2007 - June 2010</span>
+            <p><ul class="timeline-content">
+              <li>M.S. in Computer Science</li>
+              <li>My research interests included various applications on image and video processing, especially, on image compression.</li>
+              <li>As an oversea student in University of Auckland English Language Academy (ELA) for 6 months.</li>
+            </ul></p>
+          </li>
+          <li>
+            <span class="timeline-title">National Pingtung University</span>
+            <span class="float-right">September 2003 - June 2007</span>
+            <p><ul class="timeline-content">
+              <li>B.S. in Computer Science</li>
+            </ul></p>
+          </li>
+        </ul>
+      </div>
+      <br><br><br><br>
+      <div>
+        <h4 id="section5">MY WORK</h4>
+        <h1 class="my-title"><b>RECENT WORK</b></h1> 
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Bar chart</div>
+              <div class="panel-body">
+                <canvas id="barChart"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Line chart</div>
+              <div class="panel-body">
+                <canvas id="lineChart"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Pie chart</div>
+              <div class="panel-body">
+                <canvas id="pieChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>    
+        <br>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Stack chart</div>
+              <div class="panel-body">
+                <canvas id="stackChart"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Scatter chart</div>
+              <div class="panel-body">
+                <canvas id="scatterChart"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Area line chart</div>
+              <div class="panel-body">
+                <canvas id="areaChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>
+<script>
+function getTotalDaysInJp() {
+  const start = new Date("2017-02-12T00:00:00");
+  const end = Date.now();
+  const diff = Math.abs(end - start);
+
+  return Math.floor(diff / (24*60*60*1000));
+}
+
+$(document).ready(function(){
+  $("#myScrollspy ul li a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+
+      var hash = this.hash;
+
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        window.location.hash = hash;
+      });
+    }
+  });
+
+  $('#projects').animateNumber({ number: 51 }, 12000);
+  $('#leetcode').animateNumber({ number: 408 }, 12000);
+  $('#days').animateNumber({ number: getTotalDaysInJp() }, 12000);
+
+  var ctxBar = document.getElementById("barChart");
+  var barChart = new Chart(ctxBar, {
+    type: 'bar',
+    data: {
+      labels: ["USA", "Taiwan", "Japan"],
+      datasets: [{
+        label: 'Sales',
+        data: [7, 29, 13],
+        backgroundColor: [
+          'rgba(17, 162, 184, 0.2)',
+          'rgba(28, 167, 45, 0.2)',
+          'rgba(33, 122, 183, 0.2)'
+        ],
+        borderColor: [
+          'rgba(17, 162, 184, 1)',
+          'rgba(28, 167, 45, 1)',
+          'rgba(33, 122, 183, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }],
+        xAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Country'
+          }
+        }]
+      }
+    }
+  });
+
+  var ctxLine = document.getElementById("lineChart");
+  var lineChart = new Chart(ctxLine, {
+    type: 'line',
+    data: {
+      labels: ["2010", "2015", "2020"],
+      datasets: [{
+        label: 'Sales',
+        data: [12, 19, 3],
+        backgroundColor: 'rgba(17, 162, 184, 0.2)',
+        borderColor: 'rgba(17, 162, 184, 1)',
+        borderWidth: 1,
+        fill: false
+      }]
+    }
+  });
+
+  var ctxPie = document.getElementById("pieChart");
+  var pieChart = new Chart(ctxPie, {
+    type: 'pie',
+    data: {
+      labels: ["China", "Russia", "USA"],
+      datasets: [{
+        label: 'Sales',
+        data: [10, 6, 13],
+        backgroundColor: [
+          'rgba(17, 162, 184, 0.2)',
+          'rgba(28, 167, 45, 0.2)',
+          'rgba(33, 122, 183, 0.2)'
+        ],
+        borderColor: [
+          'rgba(17, 162, 184, 1)',
+          'rgba(28, 167, 45, 1)',
+          'rgba(33, 122, 183, 1)'
+        ],
+        borderWidth: 1
+      }]
+    }
+  });
+
+  var ctxStack = document.getElementById("stackChart");
+  var stackChart = new Chart(ctxStack, {
+    type: 'bar',
+    data: {
+      labels: ["January", "February", "March"],
+      datasets: [{
+        type: 'bar',
+        label: 'Revenue',
+        backgroundColor: 'rgba(28, 167, 45, 0.2)',
+        borderColor: 'rgba(28, 167, 45, 1)',
+        borderWidth: 1,
+        data: [60, 30, 80],
+      }, {
+        type: 'bar',
+        label: 'Payment',
+        backgroundColor: 'rgba(33, 122, 183, 0.2)',
+        borderColor: 'rgba(33, 122, 183, 1)',
+        borderWidth: 1,
+        data: [-30, -10, -40]
+      }]
+    },
+    options: {
+      scales: {
+        xAxes: [{
+          stacked: true
+        }]
+      }
+    }
+  }); 
+
+  var ctxScatter = document.getElementById("scatterChart");
+  var scatterChart = new Chart(ctxScatter, {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        label: 'strike',
+        backgroundColor: 'rgba(28, 167, 45, 0.2)',
+        borderColor: 'rgba(28, 167, 45, 1)',
+        borderWidth: 1,
+        data: [{
+          x: 1.1,
+          y: 2.5,
+        }, {
+          x: 3.2,
+          y: -1.4,
+        }, {
+          x: 2.4,
+          y: -1.2,
+        }]
+      }, {
+        label: 'ball',
+        backgroundColor: 'rgba(33, 122, 183, 0.2)',
+        borderColor: 'rgba(33, 122, 183, 1)',
+        borderWidth: 1,
+        data: [{
+          x: -1.2,
+          y: -0.5,
+        }, {
+          x: -3.5,
+          y: 3.0,
+        }, {
+          x: 2.0,
+          y: -3.3,
+        }, {
+          x: 0.8,
+          y: 0.3,
+        }]
+      }]
+    }
+  }); 
+
+  var ctxArea = document.getElementById("areaChart");
+  var areaChart = new Chart(ctxArea, {
+    type: 'line',
+    data: {
+      labels: ["2010", "2015", "2020"],
+      datasets: [{
+        label: 'Bitcoin',
+        data: [12, 19, 3],
+        backgroundColor: 'rgba(28, 167, 45, 0.2)',
+        borderColor: 'rgba(28, 167, 45, 1)',
+        borderWidth: 1
+      },{
+        label: 'Litecoin',
+        data: [3, 10, 23],
+        backgroundColor: 'rgba(33, 122, 183, 0.2)',
+        borderColor: 'rgba(33, 122, 183, 1)',
+        borderWidth: 1
+      }]
+    }
+  });
+
+  var TxtType = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+  };
+
+  TxtType.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+
+    if (this.isDeleting) {
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+    var that = this;
+    var delta = 200 - Math.random() * 100;
+
+    if (this.isDeleting) { delta /= 2; }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+      delta = this.period;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+      this.isDeleting = false;
+      this.loopNum++;
+      delta = 500;
+    }
+
+    setTimeout(function() {
+      that.tick();
+    }, delta);
+  };
+
+  window.onload = function() {
+    var elements = document.getElementsByClassName('typewrite');
+    for (var i=0; i<elements.length; i++) {
+      var toRotate = elements[i].getAttribute('data-type');
+      var period = elements[i].getAttribute('data-period');
+      if (toRotate) {
+        new TxtType(elements[i], JSON.parse(toRotate), period);
+      }
+    }
+    
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewrite > .wrap { border-right: 0.03em solid #ffffff }";
+    document.body.appendChild(css);
+
+    $('[data-toggle="tooltip"]').tooltip();
+  };
+});
+</script>
+</body>
+</html>

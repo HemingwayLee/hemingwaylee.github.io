@@ -167,8 +167,21 @@
       color:gray;
       float:right;
     }
+
     .timeline-content{
       font-size:18px;
+    }
+
+    div.panel-body > img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    div.panel-body > a > img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
     }
   </style>
 </head>
@@ -448,30 +461,30 @@
       </div>
       <br><br><br><br>
       <div>
-        <h4 id="section5">MY WORK</h4>
-        <h1 class="my-title"><b>RECENT WORK</b></h1> 
+        <h4 id="section5">Side projects & Thesis & Certificates</h4>
+        <h1 class="my-title"><b>My WORK</b></h1> 
         <div class="row">
           <div class="col-md-4">
             <div class="panel panel-primary">
-              <div class="panel-heading">Bar chart</div>
+              <div class="panel-heading">Capture AI</div>
               <div class="panel-body">
-                <canvas id="barChart"></canvas>
+                <a href="http://captureai.southeastasia.cloudapp.azure.com" target="blank"><img src="imgs/w2v.png"/></a>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="panel panel-primary">
-              <div class="panel-heading">Line chart</div>
+              <div class="panel-heading">subway.js</div>
               <div class="panel-body">
-                <canvas id="lineChart"></canvas>
+                <a href="https://github.com/HemingwayLee/subway.js" target="blank"><img src="https://user-images.githubusercontent.com/8428372/32406057-fba351ae-c1ab-11e7-811d-4bb15b887881.png"/></a>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="panel panel-primary">
-              <div class="panel-heading">Pie chart</div>
+              <div class="panel-heading">opencv</div>
               <div class="panel-body">
-                <canvas id="pieChart"></canvas>
+                <canvas></canvas>
               </div>
             </div>
           </div>
@@ -480,25 +493,25 @@
         <div class="row">
           <div class="col-md-4">
             <div class="panel panel-primary">
-              <div class="panel-heading">Stack chart</div>
+              <div class="panel-heading">Binary Tree Console Printer</div>
               <div class="panel-body">
-                <canvas id="stackChart"></canvas>
+                  <a href="https://github.com/HemingwayLee/sample-binary-tree-cpp" target="blank"><img src="imgs/binary_tree.png"/></a>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="panel panel-primary">
-              <div class="panel-heading">Scatter chart</div>
+              <div class="panel-heading">Thesis</div>
               <div class="panel-body">
-                <canvas id="scatterChart"></canvas>
+                <a href="https://link.springer.com/chapter/10.1007/978-3-319-07467-2_29" target="blank"><img src="imgs/paper.png"/></a>
               </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="panel panel-primary">
-              <div class="panel-heading">Area line chart</div>
+              <div class="panel-heading">Scrum Master Certificate</div>
               <div class="panel-body">
-                <canvas id="areaChart"></canvas>
+                <img src="imgs/scrum.png"/>
               </div>
             </div>
           </div>
@@ -539,175 +552,6 @@ $(document).ready(function(){
   $('#projects').animateNumber({ number: 51 }, 12000);
   $('#leetcode').animateNumber({ number: 408 }, 12000);
   $('#days').animateNumber({ number: getTotalDaysInJp() }, 12000);
-
-  var ctxBar = document.getElementById("barChart");
-  var barChart = new Chart(ctxBar, {
-    type: 'bar',
-    data: {
-      labels: ["USA", "Taiwan", "Japan"],
-      datasets: [{
-        label: 'Sales',
-        data: [7, 29, 13],
-        backgroundColor: [
-          'rgba(17, 162, 184, 0.2)',
-          'rgba(28, 167, 45, 0.2)',
-          'rgba(33, 122, 183, 0.2)'
-        ],
-        borderColor: [
-          'rgba(17, 162, 184, 1)',
-          'rgba(28, 167, 45, 1)',
-          'rgba(33, 122, 183, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
-        }],
-        xAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'Country'
-          }
-        }]
-      }
-    }
-  });
-
-  var ctxLine = document.getElementById("lineChart");
-  var lineChart = new Chart(ctxLine, {
-    type: 'line',
-    data: {
-      labels: ["2010", "2015", "2020"],
-      datasets: [{
-        label: 'Sales',
-        data: [12, 19, 3],
-        backgroundColor: 'rgba(17, 162, 184, 0.2)',
-        borderColor: 'rgba(17, 162, 184, 1)',
-        borderWidth: 1,
-        fill: false
-      }]
-    }
-  });
-
-  var ctxPie = document.getElementById("pieChart");
-  var pieChart = new Chart(ctxPie, {
-    type: 'pie',
-    data: {
-      labels: ["China", "Russia", "USA"],
-      datasets: [{
-        label: 'Sales',
-        data: [10, 6, 13],
-        backgroundColor: [
-          'rgba(17, 162, 184, 0.2)',
-          'rgba(28, 167, 45, 0.2)',
-          'rgba(33, 122, 183, 0.2)'
-        ],
-        borderColor: [
-          'rgba(17, 162, 184, 1)',
-          'rgba(28, 167, 45, 1)',
-          'rgba(33, 122, 183, 1)'
-        ],
-        borderWidth: 1
-      }]
-    }
-  });
-
-  var ctxStack = document.getElementById("stackChart");
-  var stackChart = new Chart(ctxStack, {
-    type: 'bar',
-    data: {
-      labels: ["January", "February", "March"],
-      datasets: [{
-        type: 'bar',
-        label: 'Revenue',
-        backgroundColor: 'rgba(28, 167, 45, 0.2)',
-        borderColor: 'rgba(28, 167, 45, 1)',
-        borderWidth: 1,
-        data: [60, 30, 80],
-      }, {
-        type: 'bar',
-        label: 'Payment',
-        backgroundColor: 'rgba(33, 122, 183, 0.2)',
-        borderColor: 'rgba(33, 122, 183, 1)',
-        borderWidth: 1,
-        data: [-30, -10, -40]
-      }]
-    },
-    options: {
-      scales: {
-        xAxes: [{
-          stacked: true
-        }]
-      }
-    }
-  }); 
-
-  var ctxScatter = document.getElementById("scatterChart");
-  var scatterChart = new Chart(ctxScatter, {
-    type: 'scatter',
-    data: {
-      datasets: [{
-        label: 'strike',
-        backgroundColor: 'rgba(28, 167, 45, 0.2)',
-        borderColor: 'rgba(28, 167, 45, 1)',
-        borderWidth: 1,
-        data: [{
-          x: 1.1,
-          y: 2.5,
-        }, {
-          x: 3.2,
-          y: -1.4,
-        }, {
-          x: 2.4,
-          y: -1.2,
-        }]
-      }, {
-        label: 'ball',
-        backgroundColor: 'rgba(33, 122, 183, 0.2)',
-        borderColor: 'rgba(33, 122, 183, 1)',
-        borderWidth: 1,
-        data: [{
-          x: -1.2,
-          y: -0.5,
-        }, {
-          x: -3.5,
-          y: 3.0,
-        }, {
-          x: 2.0,
-          y: -3.3,
-        }, {
-          x: 0.8,
-          y: 0.3,
-        }]
-      }]
-    }
-  }); 
-
-  var ctxArea = document.getElementById("areaChart");
-  var areaChart = new Chart(ctxArea, {
-    type: 'line',
-    data: {
-      labels: ["2010", "2015", "2020"],
-      datasets: [{
-        label: 'Bitcoin',
-        data: [12, 19, 3],
-        backgroundColor: 'rgba(28, 167, 45, 0.2)',
-        borderColor: 'rgba(28, 167, 45, 1)',
-        borderWidth: 1
-      },{
-        label: 'Litecoin',
-        data: [3, 10, 23],
-        backgroundColor: 'rgba(33, 122, 183, 0.2)',
-        borderColor: 'rgba(33, 122, 183, 1)',
-        borderWidth: 1
-      }]
-    }
-  });
 
   var TxtType = function(el, toRotate, period) {
     this.toRotate = toRotate;

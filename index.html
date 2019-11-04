@@ -11,6 +11,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-animateNumber/0.0.14/jquery.animateNumber.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <script src="js/notebook.min.js"></script>
+  <script src="js/threshold_show.js"></script>
   <style>
     body{
       font-family: 'Dosis', sans-serif;
@@ -182,6 +184,10 @@
       height: 100%;
       width: 100%;
       object-fit: contain;
+    }
+    
+    .modal-content {
+      display:inline-block;
     }
   </style>
 </head>
@@ -484,7 +490,7 @@
             <div class="panel panel-primary">
               <div class="panel-heading">OpenCV</div>
               <div class="panel-body">
-                <canvas></canvas>
+                <a href="#section5" id="opencvBtn"><img src="imgs/opencv.png"/></a>
               </div>
             </div>
           </div>
@@ -511,7 +517,7 @@
             <div class="panel panel-primary">
               <div class="panel-heading">Scrum Master Certificate</div>
               <div class="panel-body">
-                <img src="imgs/scrum.png"/>
+                <a href="#section5" id="scrumBtn"><img src="imgs/scrum.png"/></a>
               </div>
             </div>
           </div>
@@ -524,7 +530,30 @@
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+function openModal(header, bodyHtml) {
+  $(".modal-title").text(header);
+  $(".modal-body").html(bodyHtml);
+}
+
 function getTotalDaysInJp() {
   const start = new Date("2017-02-12T00:00:00");
   const end = Date.now();
@@ -547,6 +576,17 @@ $(document).ready(function(){
         window.location.hash = hash;
       });
     }
+  });
+
+  $("#scrumBtn").click(function() {
+    openModal("My Scrum Master Certificate", '<img class="img-responsive" src="imgs/scrum.png"/>');
+    $('#myModal').modal('show'); 
+  });
+
+  $("#opencvBtn").click(function() {
+    const notebook = nb.parse(threshold);
+    openModal("My OpenCV works", notebook.render());
+    $('#myModal').modal('show'); 
   });
 
   $('#projects').animateNumber({ number: 51 }, 12000);

@@ -559,6 +559,32 @@
 </div>
 
 <script>
+function generateHtml() {
+  return `
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#tabThreshold" data-toggle="tab">Threshold</a></li>
+          <li><a href="#tabBlur" data-toggle="tab">Blur</a></li>
+          <li><a href="#tabPara" data-toggle="tab">Paragraph</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="tabThreshold">
+        ${nb.parse(threshold).render().innerHTML}
+      </div>
+      <div class="tab-pane fade" id="tabBlur">
+      </div>
+      <div class="tab-pane fade" id="tabPara">
+      </div>
+    </div>
+  </div>`;
+}
+
 function openModal(header, bodyHtml) {
   $(".modal-title").text(header);
   $(".modal-body").html(bodyHtml);
@@ -594,8 +620,7 @@ $(document).ready(function(){
   });
 
   $("#opencvBtn").click(function() {
-    const notebook = nb.parse(threshold);
-    openModal("My OpenCV works", notebook.render());
+    openModal("My OpenCV works", generateHtml());
     $('#myModal').modal('show'); 
   });
 

@@ -14,6 +14,7 @@
   <script src="js/notebook.min.js"></script>
   <script src="js/threshold_show.js"></script>
   <script src="js/blur.js"></script>
+  <script src="js/paragraph.js"></script>
   <style>
     body{
       font-family: 'Dosis', sans-serif;
@@ -582,6 +583,7 @@ function generateHtml() {
         ${nb.parse(blur).render().innerHTML}
       </div>
       <div class="tab-pane fade" id="tabPara">
+        ${nb.parse(para).render().innerHTML}
       </div>
     </div>
   </div>`;

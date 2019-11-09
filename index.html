@@ -13,6 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
   <script src="js/notebook.min.js"></script>
   <script src="js/threshold_show.js"></script>
+  <script src="js/blur.js"></script>
   <style>
     body{
       font-family: 'Dosis', sans-serif;
@@ -578,6 +579,7 @@ function generateHtml() {
         ${nb.parse(threshold).render().innerHTML}
       </div>
       <div class="tab-pane fade" id="tabBlur">
+        ${nb.parse(blur).render().innerHTML}
       </div>
       <div class="tab-pane fade" id="tabPara">
       </div>

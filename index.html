@@ -15,6 +15,7 @@
   <script src="js/threshold_show.js"></script>
   <script src="js/blur.js"></script>
   <script src="js/paragraph.js"></script>
+  <script src="js/table.js"></script>
   <style>
     body{
       font-family: 'Dosis', sans-serif;
@@ -570,6 +571,7 @@ function generateHtml() {
           <li class="active"><a href="#tabThreshold" data-toggle="tab">Threshold</a></li>
           <li><a href="#tabBlur" data-toggle="tab">Blur</a></li>
           <li><a href="#tabPara" data-toggle="tab">Paragraph</a></li>
+          <li><a href="#tabTable" data-toggle="tab">Table</a></li>
         </ul>
       </div>
     </div>
@@ -584,6 +586,9 @@ function generateHtml() {
       </div>
       <div class="tab-pane fade" id="tabPara">
         ${nb.parse(para).render().innerHTML}
+      </div>
+      <div class="tab-pane fade" id="tabTable">
+        ${nb.parse(contour).render().innerHTML}
       </div>
     </div>
   </div>`;

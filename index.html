@@ -16,24 +16,20 @@
   <script src="js/blur.js"></script>
   <script src="js/paragraph.js"></script>
   <script src="js/table.js"></script>
-  <script src="js/classification.js"></script>
   <style>
-    body{
+    body {
       font-family: 'Dosis', sans-serif;
       position: relative;
     }
     
-    /*Add font-size and/or height to make scroll move lots.*/
     div.col-sm-9 div{
       font-size: 20px;
     }
     
-    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
     .row.content {
       height: 1500px;
     }
     
-    /* Set gray background color and 100% height */
     .sidenav {
       background-color: #f1f1f1;
       height: 100%;
@@ -45,11 +41,10 @@
     }
     
     .main{
-      margin-left:250px; /*must be the same width as sidenav is*/
+      margin-left:250px;
       padding: 0px 10px;
     }
     
-    /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
       .sidenav {
         height: auto;
@@ -195,7 +190,7 @@
     }
 
     .modal-dialog {
-      width: 75%;
+      width: 60%;
       margin: 0 auto;
     }
 
@@ -290,7 +285,7 @@
         </tr>
         <tr>
           <td><i class="fas fa-users-cog fa-2x skill" data-toggle="tooltip" title="Methodologies"></i></td>
-          <td>Extreme Programming, Unit Test, Scrum, Kanban, Lean, Design Patterns, DevOps</td>
+          <td>Extreme Programming, Unit Test, <a href="javascript:void(0)" id="projectsBtn">Agile</a>, Scrum, Kanban, Lean, Design Patterns, DevOps</td>
         </tr>
         <tr>
           <td><i class="fas fa-wrench fa-2x skill" data-toggle="tooltip" title="Testing Tools"></i></td>
@@ -311,7 +306,7 @@
         <tr>
           <td><i class="fas fa-brain fa-2x skill" data-toggle="tooltip" title="Machine Learning Libraries"></i></td>
           <td>
-            <a id="kerasExampleBtn" href="javascript:void(0)">Keras</a>, 
+            <a href="https://github.com/HemingwayLee/keras-showcase">Keras</a>, 
             <a href="https://github.com/HemingwayLee/bert-classification-examples" target="blank">BERT</a>, 
             TensorFlow, 
             <a href="https://github.com/HemingwayLee/scikit-learn-showcase" target="blank">scikit-learn</a>, 
@@ -573,7 +568,7 @@
 </div>
 
 <script>
-function generateHtml() {
+function generateOpenCvWorks() {
   return `
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -603,6 +598,111 @@ function generateHtml() {
       </div>
     </div>
   </div>`;
+}
+function generateBubbleChart() {
+  var ctxagb = document.getElementById("agileBubble");
+  var agileBubble = new Chart(ctxagb, {
+    type: 'bubble',
+    data: {
+      datasets: [{
+        label: 'Simple',
+        data: [{
+          x: 0, y: 0, r: 250, name: "Simple", area: true
+        }],
+        backgroundColor: 'rgba(255,205,86,0.2)',
+        borderColor: 'rgba(255,205,86,1)',
+        borderWidth: 1,
+      }, {
+        label: 'Complicated',
+        data: [{
+          x: 0, y: 0, r: 500, name: "Complicated", area: true
+        }],
+        backgroundColor: 'rgba(54,162,235,0.2)',
+        borderColor: 'rgba(54,162,235,1)',
+        borderWidth: 1,
+      }, {
+        label: 'Chaotic',
+        data: [{
+          x: 1, y: 1, r: 250, name: "Chaotic", area: true
+        }],
+        backgroundColor: 'rgba(255,99,132,0.2)',
+        borderColor: 'rgba(255,99,132,1)',
+        borderWidth: 1,
+      }, {
+        label: 'KPMG',
+        data: [{
+          // pm:1, dm:1, dev:5
+          x: 0.4, y: 0.3, r: 7, name: "Entry Sheet AI", tag: "B2B,Internal"
+        }, {
+          // pm:2, dm:1, dev:3, ds: 3
+          x: 0.75, y: 0.2, r: 9, name: "Cognitive Contract Management", tag: "B2B,Internal"
+        }, {
+          // pm:1, dm:1, dev:2
+          x: 0.25, y: 0.1, r: 4, name: "Cashflow Manager", tag: "Internal"
+        }, {
+          // pm:1, dm:1, dev:3
+          x: 0.1, y: 0.1, r: 5, name: "Survey Platform", tag: "Internal"
+        }, {
+          // pm:1, dm:1, dev:3
+          x: 0.8, y: 0.85, r: 5, name: "jFlying", tag: "Prototype"
+        }],
+        backgroundColor: '#08519A'
+      }, {
+        label: 'Vauldex',
+        data: [{
+          x: 0.9, y: 0.4, r: 30, name: "Mr. Exchange", tag: "B2C,Offshore"
+        }],
+        backgroundColor: '#EA7B5D'
+      }, {
+        label: 'TrendMicro',
+        data: [{
+          x: 0.35, y: 0.3, r: 40, name: "Control Manager (Development Group)", tag: "B2B"
+        }, {
+          x: 0.25, y: 0.3, r: 10, name: "Control Manager (Maintenance Group)", tag: "B2B"
+        }],
+        backgroundColor: '#D93F2A'
+      }, {
+        label: 'AVerMedia',
+        data: [{
+          x: 0.15, y: 0.1, r: 6, name: "AVerTV", tag: "B2B,B2C"
+        }],
+        backgroundColor: '#1C1C67'
+      }, {
+        label: 'Cyberlink',
+        data: [{
+          x: 0.2, y: 0.2, r: 7, name: "MediaEspresso", tag: "B2B,B2C"
+        }],
+        backgroundColor: '#000000'
+      }]
+    },
+    options: {
+      tooltips: {
+        callbacks: {
+          label: function(tooltipItem, data) {
+            var value = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+            
+            if ("area" in value) {
+              return value.name;
+            } else {
+              return [
+                value.name, 
+                "Team members: " + value.r.toString()
+              ].concat(value.tag.split(","));
+            }
+          }
+        }
+      }, 
+      scales: {
+        yAxes: [{
+          scaleLabel: { display: true, labelString: 'Requirements'
+          }
+        }],
+        xAxes: [{
+          scaleLabel: { display: true, labelString: 'Technology' }
+        }]
+      } 
+    }
+  });
 }
 
 function openModal(header, bodyHtml) {
@@ -640,13 +740,14 @@ $(document).ready(function(){
   });
 
   $("#opencvBtn").click(function() {
-    openModal("My OpenCV works", generateHtml());
+    openModal("My OpenCV works", generateOpenCvWorks());
     $('#myModal').modal('show'); 
   });
 
-  $("#kerasExampleBtn").click(function() {
-    openModal("Sentence classification with LSTM", nb.parse(kerasLstm).render().innerHTML);
+  $("#projectsBtn").click(function() {
+    openModal("My Projects", '<canvas id="agileBubble" width="40%" height="40%"></canvas>');
     $('#myModal').modal('show'); 
+    generateBubbleChart();
   });
 
   $('#projects').animateNumber({ number: 49 }, 12000);

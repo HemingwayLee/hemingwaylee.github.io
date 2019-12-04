@@ -190,7 +190,7 @@
     }
 
     .modal-dialog {
-      width: 60%;
+      width: 50%;
       margin: 0 auto;
     }
 
@@ -607,26 +607,26 @@ function generateBubbleChart() {
       datasets: [{
         label: 'Simple',
         data: [{
-          x: 0, y: 0, r: 250, name: "Simple", area: true
+          x: 0, y: 0, r: 200, name: "Simple", area: true
         }],
-        backgroundColor: 'rgba(255,205,86,0.2)',
-        borderColor: 'rgba(255,205,86,1)',
+        backgroundColor: 'rgba(255,205,86,0.1)',
+        borderColor: 'rgba(255,205,86,0.3)',
         borderWidth: 1,
       }, {
         label: 'Complicated',
         data: [{
-          x: 0, y: 0, r: 500, name: "Complicated", area: true
+          x: 0, y: 0, r: 400, name: "Complicated", area: true
         }],
-        backgroundColor: 'rgba(54,162,235,0.2)',
-        borderColor: 'rgba(54,162,235,1)',
+        backgroundColor: 'rgba(54,162,235,0.1)',
+        borderColor: 'rgba(54,162,235,0.3)',
         borderWidth: 1,
       }, {
         label: 'Chaotic',
         data: [{
-          x: 1, y: 1, r: 250, name: "Chaotic", area: true
+          x: 1, y: 1, r: 200, name: "Chaotic", area: true
         }],
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderColor: 'rgba(255,99,132,1)',
+        backgroundColor: 'rgba(255,99,132,0.1)',
+        borderColor: 'rgba(255,99,132,0.3)',
         borderWidth: 1,
       }, {
         label: 'KPMG',
@@ -694,11 +694,34 @@ function generateBubbleChart() {
       }, 
       scales: {
         yAxes: [{
-          scaleLabel: { display: true, labelString: 'Requirements'
+          scaleLabel: { display: true, labelString: 'Requirements' },
+          ticks: {
+            callback: function(value, index, values) {
+              var label = ""
+              if (value == "0") {
+                label = "clear";
+              } else if (value == "1") {
+                label = "unclear";
+              }
+
+              return label;
+            }
           }
         }],
         xAxes: [{
-          scaleLabel: { display: true, labelString: 'Technology' }
+          scaleLabel: { display: true, labelString: 'Technology' },
+          ticks: {
+            callback: function(value, index, values) {
+              var label = ""
+              if (value == "0") {
+                label = "known";
+              } else if (value == "1") {
+                label = "unknown";
+              }
+
+              return label;
+            }
+          }
         }]
       } 
     }

@@ -320,8 +320,8 @@
         <i class="fa fa-check" aria-hidden="true"></i>  Familiar with Supervised learning & Unsupervised learning & Reinforcement learning<br>
         <i class="fa fa-check" aria-hidden="true"></i>  Familiar with NLP (<a href="https://github.com/HemingwayLee/mecab-showcase" target="blank">Tokenization</a>, <a href="https://github.com/HemingwayLee/japanese-words-to-vectors">word2vec</a>, BERT, <a href="https://github.com/HemingwayLee/keras-showcase/blob/master/lstm/ner.ipynb">NER</a>, sentiment analysis, chatbots, question answering, and language modeling)<br>
         <i class="fa fa-check" aria-hidden="true"></i>  Familiar with build automation, test automation, and deployment automation<br>
-        <i class="fa fa-check" aria-hidden="true"></i>  Familiar with CI/CD (Jenkins, GitLab CI, and Azure DevOps)<br>
-        <i class="fa fa-check" aria-hidden="true"></i>  Familiar with Cloud Services (EC2, ECS, RDS, S3, Lambda/Azure Function, Azure Machine Learning Service/CoLab, AutoML, CosmosDB, and KeyVault)<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Familiar with CI/CD (Jenkins, GitLab CI, and <a href="javascript:void(0)" id="azureCiCdBtn">Azure DevOps</a>)<br>
+        <i class="fa fa-check" aria-hidden="true"></i>  Familiar with Cloud Services (EC2, ECS, RDS, S3, Lambda/Azure Function, <a href="javascript:void(0)" id="azureMlWorkspaceBtn">Azure Machine Learning Workspace</a>/CoLab, AutoML, CosmosDB, and KeyVault)<br>
         <i class="fa fa-check" aria-hidden="true"></i>  Familiar with MVC (Play Framework, Django) framework and ORM framework (Slick)<br>
         <i class="fa fa-check" aria-hidden="true"></i>  Familiar with Inter-process Communication (IPC) and Multithreaded Programming<br>
         <i class="fa fa-check" aria-hidden="true"></i>  Familiar with Hotfix Release Process<br>
@@ -759,6 +759,16 @@ $(document).ready(function(){
 
   $("#scrumBtn").click(function() {
     openModal("My Scrum Master Certificate", '<img class="img-responsive" src="imgs/scrum.png"/>');
+    $('#myModal').modal('show'); 
+  });
+
+  $("#azureCiCdBtn").click(function() {
+    openModal("Azure DevOps CI\\CD pipeline", '<img class="img-responsive" src="imgs/cicd.png"/>');
+    $('#myModal').modal('show'); 
+  });
+
+  $("#azureMlWorkspaceBtn").click(function() {
+    openModal("Azure Machine Learning Workspace", '<img class="img-responsive" src="imgs/amlw.png"/>');
     $('#myModal').modal('show'); 
   });
 

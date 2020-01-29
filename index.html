@@ -293,7 +293,7 @@
         </tr>
         <tr>
           <td><i class="fas fa-cloud fa-2x skill" data-toggle="tooltip" title="Clouds"></i></td>
-          <td>Azure, AWS</td>
+          <td><a href="javascript:void(0)" id="azureBtn">Azure</a>, AWS</td>
         </tr>
         <tr>
           <td><i class="fab fa-docker fa-2x skill" data-toggle="tooltip" title="Virtualization Tools"></i></td>
@@ -762,8 +762,13 @@ $(document).ready(function(){
     $('#myModal').modal('show'); 
   });
 
+  $("#azureBtn").click(function() {
+    openModal("Azure DevOps CI\\CD pipeline for webapp", '<img class="img-responsive" src="imgs/azure.png"/>');
+    $('#myModal').modal('show'); 
+  });
+
   $("#azureCiCdBtn").click(function() {
-    openModal("Azure DevOps CI\\CD pipeline", '<img class="img-responsive" src="imgs/cicd.png"/>');
+    openModal("Azure DevOps CI\\CD pipeline for machine learning projects", '<img class="img-responsive" src="imgs/cicd.png"/>');
     $('#myModal').modal('show'); 
   });
 

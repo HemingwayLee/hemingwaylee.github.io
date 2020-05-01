@@ -297,7 +297,7 @@
         </tr>
         <tr>
           <td><i class="fab fa-docker fa-2x skill" data-toggle="tooltip" title="Virtualization Tools"></i></td>
-          <td><a href="https://github.com/HemingwayLee/docker-cheatsheet" target="blank">Docker</a>, Docker Compose, <a href="https://github.com/HemingwayLee/k8s-cheatsheet" target="_blank">Kubernetes</a>, VMWare, VirtualBox</td>
+          <td><a href="https://github.com/HemingwayLee/docker-cheatsheet" target="blank">Docker</a>, Docker Compose, <a href="https://github.com/HemingwayLee/k8s-cheatsheet" target="blank">Kubernetes</a>, VMWare, VirtualBox</td>
         </tr>
         <tr>
           <td><i class="fas fa-cog fa-2x skill" data-toggle="tooltip" title="Build Tools"></i></td>
@@ -374,7 +374,7 @@
                 <li>Built an in-house skillset matching algorithm using NLTK and scikit-learn.</li>
                 <li>Checked Japanese grammar and spelling with an in-house language model using Keras and FastText.</li>
               </ul>
-              <li>Contract Management is a web application that digests various Japanese contracts in PDF format and detects 20+ different Named Entities using KPMG in-house <a href="https://www.youtube.com/watch?v=scQ3xzWprss">Ignite AI platform</a>.</li>
+              <li><a href="javascript:void(0)" id="contractMgr">Contract Management System</a> is a web application that digests various Japanese contracts in PDF format and detects 20+ different Named Entities using KPMG in-house <a href="https://www.youtube.com/watch?v=scQ3xzWprss">Ignite AI platform</a>.</li>
               <ul>   
                 <li>Built an in-house data pipeline to store data in Azure Databricks and CosmosDB.</li>  
                 <li>Used OpenCV and tesseract to do Optical Character Recognition (OCR).</li>          
@@ -815,6 +815,11 @@ $(document).ready(function(){
     openModal("My Projects", '<canvas id="agileBubble" width="40%" height="40%"></canvas>');
     $('#myModal').modal('show'); 
     generateBubbleChart();
+  });
+
+  $("#contractMgr").click(function() {
+    openModal("Contract Management System", '<img class="img-responsive" src="https://assets.kpmg/content/dam/kpmg/jp/images/2019/07-12/jp-kit-start-20191115-03.jpg/jcr:content/renditions/cq5dam.web.512.99999.jpg"/><br>Reference: <a href="https://home.kpmg/jp/ja/home/insights/2019/11/kit-start-20191115.html" target="blank">プロフェッショナルの「できない」を「できる」に変える～ KPMG Ignition Tokyo 始動</a>');
+    $('#myModal').modal('show'); 
   });
 
   $('#projects').animateNumber({ number: 49 }, 12000);

@@ -368,7 +368,12 @@
             <span class="timeline-title">KPMG Ignition Tokyo</span>
             <span class="float-right">July 2019 - Present</span>
             <p><ul class="timeline-content">
-              <li>Entry Sheet AI is a web application that evaluates job applicants' resumes with Nature Language Processing (NLP) algorithms.</li>
+              <li><a href="javascript:void(0)" id="capp2">CAPP2 (Crypto Audit Platform Phase 2)</a> is an aduit platform that supports fraud detection and features of blockchain explorers.</li>
+              <ul>
+                <li>Moved data from AWS into Azure Databricks via Azure Data Factory.</li>
+                <li>Deployed the fraud detection algorithm to Azure Container Registry and ran it in Azure Container Instance via Azure DevOps release pipeline.</li>
+              </ul>
+              <li>Entry Sheet AI is a prototype web application that evaluates job applicants' resumes with Nature Language Processing (NLP) algorithms.</li>
               <ul>
                 <li>Checked if the content of an entry sheet is copy-and-paste or not using a hybrid algorithm which consists of Cosine Similarity, wordnet, n-grams, and Word2Vec.</li>
                 <li>Built an in-house skillset matching algorithm using NLTK and scikit-learn.</li>
@@ -819,6 +824,11 @@ $(document).ready(function(){
 
   $("#contractMgr").click(function() {
     openModal("Contract Management System", '<img class="img-responsive" src="https://assets.kpmg/content/dam/kpmg/jp/images/2019/07-12/jp-kit-start-20191115-03.jpg/jcr:content/renditions/cq5dam.web.512.99999.jpg"/><br>Reference: <a href="https://home.kpmg/jp/ja/home/insights/2019/11/kit-start-20191115.html" target="blank">プロフェッショナルの「できない」を「できる」に変える～ KPMG Ignition Tokyo 始動</a>');
+    $('#myModal').modal('show'); 
+  });
+
+  $("#capp2").click(function() {
+    openModal("Crypto Audit Platform Phase 2", '<img class="img-responsive" src="https://assets.kpmg/content/dam/kpmg/jp/images/2019/07-12/jp-kit-start-20191115-02.jpg/jcr:content/renditions/cq5dam.web.512.99999.jpg"/><br>Reference: <a href="https://home.kpmg/jp/ja/home/insights/2019/11/kit-start-20191115.html" target="blank">プロフェッショナルの「できない」を「できる」に変える～ KPMG Ignition Tokyo 始動</a>');
     $('#myModal').modal('show'); 
   });
 
